@@ -13,6 +13,11 @@ yarn serve
 ### Compiles and minifies for production
 ```
 yarn build
+
+run npm install -g serve
+then 
+npx serve -s public
+
 ```
 
 ### Run your unit tests
