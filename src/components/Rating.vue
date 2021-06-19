@@ -5,11 +5,8 @@
           <img src="../assets/star-1.svg">
         </div>
           <div class="rating-number">
-            <span v-if="score">
-              {{ score }} / 10
-            </span>
-            <span v-else>
-              Needs review
+            <span>
+              {{ getScoreString(score) }}
             </span>
           </div>
       </div>
@@ -22,6 +19,23 @@ export default {
   props: {
     score: {
       type: String,
+    },
+    withDivider: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    getScoreString(score) {
+      let scoreString = 'Needs Review';
+      if (score) {
+        if (this.withDivider) {
+          scoreString = `${score} / 10`;
+        } else {
+          scoreString = score;
+        }
+      }
+      return scoreString;
     },
   },
 };

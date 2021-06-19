@@ -11,7 +11,7 @@
       <div class="rating-section">
         <div class="runtime"> {{ buildRuntimeString() }}  </div>
         <span class="divider"> | </span>
-        <rating :score="movie.rating"></rating>
+        <rating :withDivider="true" :score="movie.rating"></rating>
       </div>
       <div class="description-section">
         <p v-html="movie.synopsis"></p>
