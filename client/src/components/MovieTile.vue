@@ -1,7 +1,7 @@
 <template>
     <div class="tile">
       <div class="image">
-        <img :src="movie.image" >
+        <img v-lazy="movie.image" >
       </div>
       <div class="name">
         <span class="name-text" v-html="movie.title"></span>
