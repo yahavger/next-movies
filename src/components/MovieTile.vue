@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     onButtonClicked() {
-      console.info(`MovieTile: onButtonClicked enter id selected ${this.id}`);
+      console.info('enter MovieTile: onButtonClicked');
+      console.info(`MovieTile: onButtonClicked, tile id clicked ${this.id}`);
       this.$emit('buttonClicked', this.id);
     },
   },
@@ -46,7 +47,9 @@ export default {
   .tile {
     padding: 5px;
     width: 260px;
+    height: 550px;
     margin-bottom: 70px;
+    position: relative;
     .image {
       height: 364px;
       > img {
@@ -62,6 +65,9 @@ export default {
       text-transform: capitalize;
     }
     .more {
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
       padding-top: 20px;
       .more-btn {
         cursor: pointer;

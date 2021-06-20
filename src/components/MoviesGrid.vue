@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     onTileButtonClicked(id) {
-      console.info(`MoviesGrid: onTileButtonClicked id:${id}`);
+      console.info(`enter MoviesGrid: onTileButtonClicked, params: { id: ${id} }`);
       this.$emit('onMovieSelected', id);
     },
   },

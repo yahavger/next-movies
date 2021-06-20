@@ -76,20 +76,37 @@ export default {
         .description-section {
           font-size: 20px;
         }
-        .rating-section {
-          font-size: 20px;
-          .rating-number {
-            font-size: 20px;
+        .title-section {
+          font-size: 18px;
+          text-align: center;
+          .rating-section {
+            .rating-wrapper {
+              .rating-views-info-wrapper {
+                .rating-number {
+                  display: none;
+                }
+                .rating-number-small {
+                  display: block;
+                }
+              }
+            }
           }
-          .rating-image {
-            > img {
-              width: 20px;
+          .wrapper {
+            .runtime-section {
+              line-height: 30px;
+              font-size: 16px;
             }
           }
         }
-        .title-section {
-          font-size: 30px;
-          text-align: center;
+        .button-section {
+          .back-btn {
+            width: 215px;
+          }
+        }
+        .image-section {
+          > img {
+            width: 180px;
+          }
         }
       }
     }
@@ -105,6 +122,7 @@ export default {
     }
     /deep/ .tile {
       width: 143px;
+      height: 400px;
       .name {
         font-size: 17px;
       }

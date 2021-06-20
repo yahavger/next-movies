@@ -22,13 +22,13 @@ export default {
   },
   watch: {
     term(value) {
-      console.info('SearchBy:term watch', value);
+      console.info(`enter SearchBy:term watch, params: { value: ${value} }`);
       this.$emit('termChanged', value);
     },
   },
   methods: {
     setSelected(value) {
-      console.info('SearchBy:setSelected', JSON.stringify(value));
+      console.info(`enter SearchBy:setSelected: params: { value: ${JSON.stringify(value)} }`);
       this.selected = value.name;
       this.$emit('selected', value);
     },

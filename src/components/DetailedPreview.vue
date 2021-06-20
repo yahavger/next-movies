@@ -6,12 +6,17 @@
     </div>
     <div class="details-section">
       <div class="title-section">
-          {{ movie.title }}
-      </div>
-      <div class="rating-section">
-        <div class="runtime"> {{ buildRuntimeString() }}  </div>
-        <span class="divider"> | </span>
-        <rating :withDivider="true" :score="movie.rating"></rating>
+        <div class="wrapper">
+          <div class="title">{{ movie.title }}</div>
+          <div class="runtime-section">
+            <span class="runtime"> {{ buildRuntimeString() }}  </span>
+            <span class="divider"> | </span>
+            <span>Drama</span>
+          </div>
+        </div>
+          <div class="rating-section">
+            <rating :views="'1,865,173'" :withDivider="true" :score="movie.rating"></rating>
+          </div>
       </div>
       <div class="description-section">
         <p v-html="movie.synopsis"></p>
@@ -39,12 +44,14 @@ export default {
   },
   methods: {
     hidePreviewModal() {
+      console.info('enter DetailedPreview:hidePreviewModal');
       this.$emit('closeModal');
     },
     buildRuntimeString() {
       const { runtime } = this.movie;
-      const [hours, minutes] = runtime.split('h');
-      return `${hours}h  ${minutes}`;
+      const [hours, minutesWithM] = runtime.split('h');
+      const [minutes] = minutesWithM.split('m');
+      return `${hours}h  ${minutes}min`;
     },
   },
   computed: {
@@ -75,26 +82,41 @@ export default {
     height: 402px;
     width: 500px;
     position: relative;
-    .rating-section {
-      display: flex;
-      font-size: 25px;
-      font-family: system-ui;
-      font-weight: 100;
-      .runtime {
-        text-align: left;
-        letter-spacing: -0.5px;
-        text-transform: capitalize;
-      }
-      .divider {
-        text-align: left;
-        letter-spacing: -0.5px;
-        text-transform: capitalize;
-        margin: 0px 15px;
-      }
-    }
     .title-section {
       font-size: 40px;
       text-transform: uppercase;
+      display: flex;
+      flex-wrap: wrap;
+      .title {
+        margin-right: 20px;
+      }
+      .wrapper{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-family: system-ui;
+        .runtime-section {
+          font-size: 25px;
+          font-weight: 100;
+          .runtime {
+            text-align: left;
+            letter-spacing: -0.5px;
+            text-transform: capitalize;
+          }
+        }
+        .rating-section {
+          display: flex;
+          padding-top: 6px;
+          font-size: 25px;
+          font-weight: 100;
+          .divider {
+            text-align: left;
+            letter-spacing: -0.5px;
+            text-transform: capitalize;
+            margin: 0px 15px;
+          }
+        }
+      }
     }
     .description-section {
       text-align: left;
@@ -106,7 +128,7 @@ export default {
       position: absolute;
       bottom: 0px;
       .back-btn {
-        width: 150px;
+        width: 260px;
         border-radius: 23px;
         height: 42px;
         border: 1px solid #000000;

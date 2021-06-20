@@ -6,7 +6,7 @@
 <script>
 
 export default {
-  name: 'page-header-bar',
+  name: 'PageHeaderBar',
 };
 </script>
 

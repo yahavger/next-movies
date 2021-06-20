@@ -64,18 +64,20 @@ export default {
   },
   methods: {
     onsSearchAttrSelected(searchAttr) {
-      console.info(`MoviesBoard:onsSearchAttrSelected enter ${JSON.stringify(searchAttr)}`);
+      console.info(`enter MoviesBoard:onsSearchAttrSelected, params: ${JSON.stringify(searchAttr)}`);
       this.searchAttr = searchAttr;
     },
     onsSearchTermChanged(term) {
-      console.info(`MoviesBoard:onsSearchTermChanged enter, search term ${term}`);
+      console.info(`enter MoviesBoard:onsSearchTermChanged, params: ${term}`);
       this.search = term;
     },
     async onMovieSelected(id) {
+      console.info(`enter MoviesBoard:onMovieSelected, params: ${id}`);
       await this.fetchSelectedMovieById(id);
       this.$modal.show('movie-preview-modal');
     },
     hidePreviewModal() {
+      console.info('enter MoviesBoard:hidePreviewModal');
       this.$modal.hide('movie-preview-modal');
     },
     ...mapActions({
@@ -87,7 +89,7 @@ export default {
       moviesData: 'getMoviesList',
     }),
     filteredMoviesArray() {
-      console.info('MoviesBoard:filteredMoviesArray enter');
+      console.info('enter MoviesBoard:filteredMoviesArray');
       function compare(a, b) {
         if (a.name < b.name) return -1;
         if (a.name > b.name) return 1;
