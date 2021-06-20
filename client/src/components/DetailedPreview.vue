@@ -1,8 +1,8 @@
 <template>
   <div class="detailed-preview">
     <div class="image-section">
-      <img class="large-image" :src="movie.largeimage">
-      <img class="small-image" :src="movie.image">
+      <img class="large-image" v-lazy="movie.largeimage">
+      <img class="small-image" v-lazy="movie.image">
     </div>
     <div class="details-section">
       <div class="title-section">
@@ -71,10 +71,18 @@ export default {
   justify-content: space-evenly;
   flex-direction: row;
   .image-section {
+
     .small-image {
       display: none;
+      > img {
+        width: 180px;
+        height: 250px;
+      }
     }
     .large-image {
+      > img {
+        width: 280px;
+      }
       display: block;
     }
   }
