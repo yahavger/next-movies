@@ -6,28 +6,33 @@ function createRatingComponent(props) {
     propsData: {
       score: props && props.score,
       withDivider: props && props.withDivider,
+      views: props && props.views,
     },
   });
 }
 
 describe('Rating', () => {
   let ratingWrapper;
-  describe('when the rating component created no score rating', () => {
+  describe('when the rating component created', () => {
     it('Should be defined', () => {
       ratingWrapper = createRatingComponent();
       expect(ratingWrapper).toBeDefined();
     });
-    it('Should create component that present "Needs Review"', () => {
+  });
+  describe('when the rating component created with no score', () => {
+    it('Should create the component without present the score', () => {
       ratingWrapper = createRatingComponent();
-      expect(ratingWrapper.html()).toContain('Needs Review');
+      expect(ratingWrapper.html()).toContain('');
     });
-    it('Should Create components that present score of 4.6', () => {
+  });
+  describe('when the rating component created with score', () => {
+    it('Should Create components with the score', () => {
       ratingWrapper = createRatingComponent({
         score: '4.6'
       });
       expect(ratingWrapper.html()).toContain('4.6');
     });
-    it('Should Create components that present score with divider of 4.6 / 10', () => {
+    it('Should Create components with score divided by 10', () => {
       ratingWrapper = createRatingComponent({
         score: '4.6',
         withDivider: true,
@@ -35,4 +40,26 @@ describe('Rating', () => {
       expect(ratingWrapper.html()).toContain('4.6 / 10');
     });
   });
+  describe('when the rating component created with score, views and divider', () => {
+    it('Should Create components with score divided by 10 and views bellow', () => {
+      ratingWrapper = createRatingComponent({
+        score: '4.6',
+        withDivider: true,
+        views: '1,865,173'
+      });
+      expect(ratingWrapper.html()).toContain('4.6 / 10');
+      expect(ratingWrapper.html()).toContain('1,865,173');
+    });
+  })
+  describe('when the rating component created with score, views', () => {
+    it('Should Create components with score and views bellow', () => {
+      ratingWrapper = createRatingComponent({
+        score: '4.6',
+        withDivider: true,
+        views: '1,865,173'
+      });
+      expect(ratingWrapper.html()).toContain('4.6');
+      expect(ratingWrapper.html()).toContain('1,865,173');
+    });
+  })
 });
