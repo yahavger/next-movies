@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import Rating from './../../src/components/Rating.vue';
+import Rating from '../../src/components/Rating.vue';
 
 function createRatingComponent(props) {
   return mount(Rating, {

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils';
-import SearchBy from './../../src/components/SearchBy.vue';
+import SearchBy from '../../src/components/SearchBy.vue';
 
 describe('SearchBy', () => {
   let searchBy;

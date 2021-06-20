@@ -1,39 +1,10 @@
-# template
+# next-test
 
-## Project setup
-```
-yarn install
-```
+## Installation
+1. Download the repository
+2. Install npm modules: `npm install`
+3. Start up the server: `npm start`
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-
-run npm install -g serve
-then 
-npx serve -s public
-
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Run your end-to-end tests
-```
-yarn test:e2e
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Usage
+1. Get all movies: http://localhost:3000/movies
+2. get one movie by id: http://localhost:3000/movies/:id (e.g., http://localhost:3000/movies/60027713)
