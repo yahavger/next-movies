@@ -1,4 +1,4 @@
-# template
+# next-movies
 
 ## Project setup
 ```
