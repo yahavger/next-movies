@@ -11,10 +11,10 @@
         </search-by>
       </div>
       <div class="board">
-        <movies-cards-grid
+        <movies-grid
           :gridData="filteredMoviesArray"
           @onMovieSelected="onMovieSelected">
-        </movies-cards-grid>
+        </movies-grid>
       </div>
       <div>
         <modal width="1000"
@@ -30,7 +30,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import MoviesCardsGrid from './MoviesGrid.vue';
+import MoviesGrid from './MoviesGrid.vue';
 import SearchBy from './SearchBy.vue';
 import DetailedPreview from './DetailedPreview.vue';
 
@@ -38,7 +38,7 @@ export default {
   name: 'MoviesBoard',
   components: {
     SearchBy,
-    MoviesCardsGrid,
+    MoviesGrid,
     DetailedPreview,
   },
   props: {

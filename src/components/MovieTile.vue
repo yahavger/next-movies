@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="tile">
       <div class="image">
         <img :src="movie.image" >
       </div>
@@ -23,7 +23,7 @@
 import Rating from './Rating.vue';
 
 export default {
-  name: 'MovieCard',
+  name: 'MovieTile',
   components: {
     Rating,
   },
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     onButtonClicked() {
-      console.info(`MovieCard: onButtonClicked enter id selected ${this.id}`);
+      console.info(`MovieTile: onButtonClicked enter id selected ${this.id}`);
       this.$emit('buttonClicked', this.id);
     },
   },
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .card {
+  .tile {
     padding: 5px;
     width: 260px;
     margin-bottom: 70px;

@@ -5,7 +5,7 @@
           <img src="../assets/star-1.svg">
         </div>
           <div class="rating-number">
-            <span>
+            <span class="text">
               {{ getScoreString(score) }}
             </span>
           </div>

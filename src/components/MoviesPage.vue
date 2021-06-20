@@ -103,7 +103,7 @@ export default {
         margin-left: 10px;
       }
     }
-    /deep/ .card {
+    /deep/ .tile {
       width: 143px;
       .name {
         font-size: 17px;

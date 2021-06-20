@@ -2,22 +2,22 @@
     <div class="movies-grid">
       <ul class="movies-grid-container" >
         <li v-for="movie in gridData" :key="movie.id">
-          <movie-card
+          <movie-tile
             :movie="movie"
-            @buttonClicked="onCardButtonClicked(movie.id)">
-          </movie-card>
+            @buttonClicked="onTileButtonClicked(movie.id)">
+          </movie-tile>
         </li>
       </ul>
     </div>
 </template>
 <script>
 
-import MovieCard from './MovieCard.vue';
+import MovieTile from './MovieTile.vue';
 
 export default {
   name: 'MoviesGrid',
   components: {
-    MovieCard,
+    MovieTile,
   },
   props: {
     gridData: {
@@ -25,8 +25,8 @@ export default {
     },
   },
   methods: {
-    onCardButtonClicked(id) {
-      console.info(`MoviesGrid: onCardButtonClicked id:${id}`);
+    onTileButtonClicked(id) {
+      console.info(`MoviesGrid: onTileButtonClicked id:${id}`);
       this.$emit('onMovieSelected', id);
     },
   },
