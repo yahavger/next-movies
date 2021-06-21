@@ -17,14 +17,14 @@ describe('Search movie by rating on board', () => {
   });
   it('should open preview of one of the last result - search rating 8.2', () => {
     cy.get(searchInput).type('8.2');
-    cy.get('#app .movies-page .movies-grid > ul >li:last-child .name-text')
+    cy.get('#app .movies-page .movies-grid > ul >li:last-child .tile .name-text')
       .invoke('text').then(
         movieName => {
       const _movieName = movieName;
       // invoke preview
-      cy.get('#app .movies-page .movies-grid > ul >li:last-child .more > button').click()
+      cy.get('#app .movies-page .movies-grid > ul >li:last-child .tile .more > button').click()
       // invoke preview name
-      cy.get(`${previewDetailedSection} .title-section`).invoke('text').then((previewName) => {
+      cy.get(`${previewDetailedSection} .title-section .wrapper .title`).invoke('text').then((previewName) => {
         //check if movie name equal to preview name;
         expect(previewName.trim()).equal(_movieName)
       })
